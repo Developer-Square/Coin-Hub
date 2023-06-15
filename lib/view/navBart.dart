@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:new_flutter_app/view/home.dart';
+import 'package:blockchain_app/view/home.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});

@@ -1,5 +1,5 @@
+import 'package:blockchain_app/view/splash.dart';
 import 'package:flutter/material.dart';
-import 'package:new_flutter_app/view/splash.dart';
 
 void main() {
   runApp(const MyApp());
