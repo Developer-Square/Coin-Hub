@@ -1,4 +1,5 @@
 import 'package:blockchain_app/model/coinModel.dart';
+import 'package:blockchain_app/view/components/cryptoAsset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -123,16 +124,45 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: myHeight * 0.02,
+                    ),
                     Expanded(
                         child: isLoading
                             ? const Center(
                                 child: CircularProgressIndicator(),
                               )
                             : ListView.builder(
-                                itemCount: coinMarket!.length,
+                                itemCount: 4,
+                                shrinkWrap: true,
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemBuilder: (context, index) {
-                                  return const Text('data');
-                                }))
+                                  return CryptoAsset(
+                                      cryptoAsset: coinMarket![index]);
+                                })),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: myWidth * 0.05),
+                      child: Row(children: const [
+                        Text(
+                          'Recommend to Buy',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ]),
+                    ),
+                    SizedBox(
+                      height: myHeight * 0.02,
+                    ),
+                    Container(
+                      height: myHeight * 0.16,
+                      width: myWidth,
+                      child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: coinMarket!.length,
+                          itemBuilder: (context, index) {
+                            return const Text('data');
+                          }),
+                    ),
                   ],
                 ),
               )
