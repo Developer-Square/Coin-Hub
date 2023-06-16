@@ -5,6 +5,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:http/http.dart' as http;
 
+import 'components/recommendedAsset.dart';
+
 class Home extends StatefulWidget {
   const Home({super.key});
 
@@ -100,9 +102,16 @@ class _HomeState extends State<Home> {
               Container(
                 height: myHeight * 0.65,
                 width: myWidth,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.shade200,
+                        spreadRadius: 3,
+                        offset: const Offset(0, 3),
+                        blurRadius: 5)
+                  ],
                   color: Colors.white,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(50),
                       topRight: Radius.circular(50)),
                 ),
@@ -151,17 +160,21 @@ class _HomeState extends State<Home> {
                       ]),
                     ),
                     SizedBox(
-                      height: myHeight * 0.02,
+                      height: myHeight * 0.01,
                     ),
-                    Container(
-                      height: myHeight * 0.16,
+                    SizedBox(
+                      height: myHeight * 0.19,
                       width: myWidth,
-                      child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: coinMarket!.length,
-                          itemBuilder: (context, index) {
-                            return const Text('data');
-                          }),
+                      child: Padding(
+                        padding: EdgeInsets.only(left: myWidth * 0.03),
+                        child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: coinMarket!.length,
+                            itemBuilder: (context, index) {
+                              return RecommendedAsset(
+                                  recommendedAsset: coinMarket![index]);
+                            }),
+                      ),
                     ),
                   ],
                 ),
