@@ -1,6 +1,6 @@
 {
-    "name": "new_flutter_app",
-    "short_name": "new_flutter_app",
+    "name": "blockchain_app",
+    "short_name": "blockchain_app",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,4 +1,4 @@
-# new_flutter_app
+# Blockchain App
 
 A new Flutter project.
 
