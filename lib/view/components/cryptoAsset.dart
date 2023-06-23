@@ -84,7 +84,7 @@ class CryptoAsset extends StatelessWidget {
                         fontSize: 18, fontWeight: FontWeight.bold)),
                 Row(
                   children: [
-                    Text('\$ ${cryptoAsset.priceChange24H.toStringAsFixed(1)}',
+                    Text('\$ ${cryptoAsset.priceChange24H.toStringAsFixed(0)}',
                         style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.normal,

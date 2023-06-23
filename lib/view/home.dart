@@ -139,7 +139,9 @@ class _HomeState extends State<Home> {
                     Expanded(
                         child: isLoading
                             ? const Center(
-                                child: CircularProgressIndicator(),
+                                child: CircularProgressIndicator(
+                                  color: Color(0xffFBC700),
+                                ),
                               )
                             : ListView.builder(
                                 itemCount: 4,
@@ -167,13 +169,19 @@ class _HomeState extends State<Home> {
                       width: myWidth,
                       child: Padding(
                         padding: EdgeInsets.only(left: myWidth * 0.03),
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: coinMarket!.length,
-                            itemBuilder: (context, index) {
-                              return RecommendedAsset(
-                                  recommendedAsset: coinMarket![index]);
-                            }),
+                        child: isLoading
+                            ? const Center(
+                                child: CircularProgressIndicator(
+                                  color: Color(0xffFBC700),
+                                ),
+                              )
+                            : ListView.builder(
+                                scrollDirection: Axis.horizontal,
+                                itemCount: coinMarket!.length,
+                                itemBuilder: (context, index) {
+                                  return RecommendedAsset(
+                                      recommendedAsset: coinMarket![index]);
+                                }),
                       ),
                     ),
                   ],
