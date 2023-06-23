@@ -143,14 +143,25 @@ class _HomeState extends State<Home> {
                                   color: Color(0xffFBC700),
                                 ),
                               )
-                            : ListView.builder(
-                                itemCount: 4,
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemBuilder: (context, index) {
-                                  return CryptoAsset(
-                                      cryptoAsset: coinMarket![index]);
-                                })),
+                            : coinMarket == null || coinMarket!.isEmpty
+                                ? Padding(
+                                    padding: EdgeInsets.all(myHeight * 0.06),
+                                    child: const Center(
+                                      child: Text(
+                                        'Attention this Api is free, so you cannot send multiple requests per second, please wait and try again later.',
+                                        style: TextStyle(fontSize: 18),
+                                      ),
+                                    ),
+                                  )
+                                : ListView.builder(
+                                    itemCount: 4,
+                                    shrinkWrap: true,
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemBuilder: (context, index) {
+                                      return CryptoAsset(
+                                          cryptoAsset: coinMarket![index]);
+                                    })),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: myWidth * 0.05),
                       child: Row(children: const [
@@ -175,13 +186,23 @@ class _HomeState extends State<Home> {
                                   color: Color(0xffFBC700),
                                 ),
                               )
-                            : ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: coinMarket!.length,
-                                itemBuilder: (context, index) {
-                                  return RecommendedAsset(
-                                      recommendedAsset: coinMarket![index]);
-                                }),
+                            : coinMarket == null || coinMarket!.isEmpty
+                                ? Padding(
+                                    padding: EdgeInsets.all(myHeight * 0.06),
+                                    child: const Center(
+                                      child: Text(
+                                        'Attention this Api is free, so you cannot send multiple requests per second, please wait and try again later.',
+                                        style: TextStyle(fontSize: 18),
+                                      ),
+                                    ),
+                                  )
+                                : ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: coinMarket!.length,
+                                    itemBuilder: (context, index) {
+                                      return RecommendedAsset(
+                                          recommendedAsset: coinMarket![index]);
+                                    }),
                       ),
                     ),
                   ],

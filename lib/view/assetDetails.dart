@@ -109,7 +109,7 @@ class _AssetDetailsState extends State<AssetDetails> {
             ),
             const Divider(),
             Expanded(
-                child: ListView(
+                child: Column(
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(
@@ -195,32 +195,42 @@ class _AssetDetailsState extends State<AssetDetails> {
                             color: Color(0xffFBC700),
                           ),
                         )
-                      : SfCartesianChart(
-                          trackballBehavior: trackballBehavior,
-                          zoomPanBehavior: ZoomPanBehavior(
-                            enablePanning: true,
-                            zoomMode: ZoomMode.x,
-                          ),
-                          series: <CandleSeries>[
-                            CandleSeries<ChartModel, int>(
-                                enableSolidCandles: true,
-                                enableTooltip: true,
-                                bullColor: Colors.green,
-                                bearColor: Colors.red,
-                                dataSource: itemChart!,
-                                xValueMapper: (ChartModel sales, _) =>
-                                    sales.time,
-                                lowValueMapper: (ChartModel sales, _) =>
-                                    sales.low,
-                                highValueMapper: (ChartModel sales, _) =>
-                                    sales.high,
-                                openValueMapper: (ChartModel sales, _) =>
-                                    sales.open,
-                                closeValueMapper: (ChartModel sales, _) =>
-                                    sales.close,
-                                animationDuration: 55)
-                          ],
-                        ),
+                      : itemChart == null
+                          ? Padding(
+                              padding: EdgeInsets.all(myHeight * 0.06),
+                              child: const Center(
+                                child: Text(
+                                  'Attention this Api is free, so you cannot send multiple requests per second, please wait and try again later.',
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                            )
+                          : SfCartesianChart(
+                              trackballBehavior: trackballBehavior,
+                              zoomPanBehavior: ZoomPanBehavior(
+                                enablePinching: true,
+                                zoomMode: ZoomMode.x,
+                              ),
+                              series: <CandleSeries>[
+                                CandleSeries<ChartModel, int>(
+                                    enableSolidCandles: true,
+                                    enableTooltip: true,
+                                    bullColor: Colors.green,
+                                    bearColor: Colors.red,
+                                    dataSource: itemChart!,
+                                    xValueMapper: (ChartModel sales, _) =>
+                                        sales.time,
+                                    lowValueMapper: (ChartModel sales, _) =>
+                                        sales.low,
+                                    highValueMapper: (ChartModel sales, _) =>
+                                        sales.high,
+                                    openValueMapper: (ChartModel sales, _) =>
+                                        sales.open,
+                                    closeValueMapper: (ChartModel sales, _) =>
+                                        sales.close,
+                                    animationDuration: 55)
+                              ],
+                            ),
                 ),
                 SizedBox(
                   height: myHeight * 0.02,
@@ -275,37 +285,44 @@ class _AssetDetailsState extends State<AssetDetails> {
                 SizedBox(
                   height: myHeight * 0.02,
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: myWidth * 0.06),
-                  child: const Text(
-                    'News',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal: myWidth * 0.06, vertical: myHeight * 0.01),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Expanded(
-                        child: Text(
-                          'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
-                          textAlign: TextAlign.justify,
-                          style: TextStyle(color: Colors.grey, fontSize: 17),
-                        ),
+                Expanded(
+                    child: ListView(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: myWidth * 0.06),
+                      child: const Text(
+                        'News',
+                        style: TextStyle(fontSize: 20),
                       ),
-                      SizedBox(
-                        width: myWidth * 0.2,
-                        child: CircleAvatar(
-                          radius: myHeight * 0.04,
-                          backgroundImage:
-                              const AssetImage('assets/image/11.PNG'),
-                        ),
-                      )
-                    ],
-                  ),
-                )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: myWidth * 0.06,
+                          vertical: myHeight * 0.01),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Expanded(
+                            child: Text(
+                              'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English.',
+                              textAlign: TextAlign.justify,
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 17),
+                            ),
+                          ),
+                          SizedBox(
+                            width: myWidth * 0.2,
+                            child: CircleAvatar(
+                              radius: myHeight * 0.04,
+                              backgroundImage:
+                                  const AssetImage('assets/image/11.PNG'),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ))
               ],
             )),
             SizedBox(

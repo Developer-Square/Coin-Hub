@@ -1,3 +1,4 @@
+import 'package:blockchain_app/view/extraPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -14,7 +15,7 @@ class NavBar extends StatefulWidget {
 class _NavBarState extends State<NavBar> {
   int _currentIndex = 0;
 
-  List<Widget> pages = [Home(), Home(), Home(), Home()];
+  List<Widget> pages = [Home(), ExtraPage(), ExtraPage(), ExtraPage()];
 
   @override
   Widget build(BuildContext context) {
