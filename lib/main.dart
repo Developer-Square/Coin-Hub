@@ -1,4 +1,4 @@
-import 'package:blockchain_app/view/splash.dart';
+import 'package:Coin_Hub/view/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,5 +1,5 @@
-import 'package:blockchain_app/model/coinModel.dart';
-import 'package:blockchain_app/view/components/cryptoAsset.dart';
+import 'package:Coin_Hub/model/coinModel.dart';
+import 'package:Coin_Hub/view/components/cryptoAsset.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';

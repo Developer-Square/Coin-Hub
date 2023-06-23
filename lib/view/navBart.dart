@@ -1,9 +1,9 @@
-import 'package:blockchain_app/view/extraPage.dart';
+import 'package:Coin_Hub/view/extraPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:blockchain_app/view/home.dart';
+import 'package:Coin_Hub/view/home.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
